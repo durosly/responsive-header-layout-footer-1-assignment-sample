@@ -29,6 +29,7 @@ header {
 	padding: 0;
 	margin: 0;
 	display: flex;
+	color: #000;
 }
 
 .main-nav a {
@@ -36,7 +37,7 @@ header {
 	text-transform: uppercase;
 	display: block;
 	padding: 0 10px;
-	color: #000;
+	color: inherit;
 }
 
 .main-nav a:hover {
@@ -44,20 +45,61 @@ header {
 	color: #2196f3;
 }
 
-.main-nav button {
-	outline: none;
+.main-nav #menu-toggler {
+	display: none;
+}
+
+.main-nav .menu-btn {
+	width: 20px;
+	padding: 2px;
+	justify-content: center;
+	align-items: center;
 	aspect-ratio: 1;
 	background-color: #fff;
 	display: none;
 }
 
 @media (max-width: 700px) {
+	header {
+		position: relative;
+	}
+
 	.main-nav ul {
+		display: none;
+		position: absolute;
+		width: 100%;
+		bottom: 0px;
+		left: 0px;
+		transform: translateY(100%);
+		flex-direction: column;
+		align-items: center;
+		background-color: #000;
+		color: #fff;
+		padding-block: 10px;
+	}
+
+	.menu-btn .x-icon {
 		display: none;
 	}
 
-	.main-nav button {
+	#menu-toggler:checked + label .x-icon {
 		display: inline-block;
+	}
+
+	#menu-toggler:checked + label .bar-icon {
+		display: none;
+	}
+
+	#menu-toggler:checked + label + ul {
+		display: flex;
+	}
+
+	.main-nav a {
+		padding-block: 5px;
+	}
+
+	.main-nav .menu-btn {
+		display: flex;
 	}
 }
 
